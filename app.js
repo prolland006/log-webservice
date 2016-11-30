@@ -25,11 +25,12 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(cors());
-
 var corsOptions = {
+    origin: "*",
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    preflightContinue: false,
     allowedHeaders: 'Content-Type,Authorization'
-};
+}
 app.use(cors(corsOptions));
 
 app.use('/', index);

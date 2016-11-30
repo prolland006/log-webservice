@@ -31,7 +31,7 @@ var corsOptions = {
     preflightContinue: false,
     allowedHeaders: 'Content-Type,Authorization'
 }
-app.use(cors(corsOptions));
+app.use(cors());
 
 app.use('/', index);
 app.use('/log', log);

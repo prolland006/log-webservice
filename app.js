@@ -25,7 +25,13 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(cors());
+let corsOptions = {
+    origin: "*",
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    preflightContinue: false,
+    allowedHeaders: 'Content-Type,Authorization'
+}
+app.use(cors(corsOptions));
 
 app.use('/', index);
 app.use('/log', log);

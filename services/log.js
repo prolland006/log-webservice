@@ -40,6 +40,7 @@ module.exports = class log {
         console.log('write mongo',logMessage);
         let MongoClient = require('mongodb').MongoClient;
 
+        console.log('trying connect to db',DB_URL);
         MongoClient.connect(DB_URL, function(err, db) {
             console.log('connect to db',DB_URL);
             if(err) {

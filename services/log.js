@@ -46,7 +46,10 @@ module.exports = class log {
             db.collection('log').insertMany(arr, function(err, results) {
                 db.close();
 
-                if(err) throw err;
+                if(err) {
+                    console.log('error',err);
+                    throw err;
+                }
             });
         });
     }

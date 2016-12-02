@@ -4,7 +4,8 @@ const DESTINATION_MONGODB = 1;
 const DESTINATION_FILE = 2;
 
 //params
-const DB_URL = 'mongodb://localhost:27017/log';
+//const DB_URL = 'mongodb://localhost:27017/log';
+const DB_URL = 'mongodb://guest:guest@ds119548.mlab.com:19548/logdb
 const WRITE_DESTINATION = DESTINATION_MONGODB;
 
 module.exports = class log {

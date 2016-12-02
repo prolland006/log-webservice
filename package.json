@@ -18,10 +18,11 @@
     "serve-favicon": "~2.3.0"
   },
   "devDependencies": {
-    "mongodb": "^2.2.12"
+    "mongodb": "^2.2.12",
+    "mongodb-core": "^2.0.14"
   },
   "engines": {
-  "node": ">= 6",
-  "npm": ">= 3"
+    "node": ">= 6",
+    "npm": ">= 3"
   }
 }

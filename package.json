@@ -19,5 +19,9 @@
   },
   "devDependencies": {
     "mongodb": "^2.2.12"
+  },
+  "engines": {
+  "node": ">= 6",
+  "npm": ">= 3"
   }
 }

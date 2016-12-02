@@ -11,6 +11,7 @@ const WRITE_DESTINATION = DESTINATION_MONGODB;
 module.exports = class log {
 
     write(logMessage) {
+        console.log('write',logmessage);
         if (WRITE_DESTINATION == DESTINATION_MONGODB) {
             this.writeMongo(logMessage);
         } else {
@@ -35,6 +36,7 @@ module.exports = class log {
     }
 
     writeMongo(logmessage) {
+        console.log('write mongo',logmessage);
         let MongoClient = require('mongodb').MongoClient;
         let url = DB_URL;
 

@@ -39,7 +39,11 @@ module.exports = class log {
         let url = DB_URL;
 
         MongoClient.connect(url, function(err, db) {
-            if(err) { return cb(err, null); }
+            console.log('connect to db',DB_URL);
+            if(err) {
+                console.log('error1',err);
+                throw err;
+            }
 
             let arr = [];
             arr.push(logmessage);

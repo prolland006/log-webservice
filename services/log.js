@@ -1,4 +1,6 @@
 fs = require('fs');
+var mongodb = require('mongodb');
+var MongoClient = mongodb.MongoClient;
 
 const DESTINATION_MONGODB = 1;
 const DESTINATION_FILE = 2;
@@ -38,8 +40,6 @@ module.exports = class log {
 
     writeMongo(logMessage) {
         console.log('write mongo',logMessage);
-        let MongoClient = require('mongodb').MongoClient;
-
         console.log('trying connect to db',DB_URL);
         MongoClient.connect(DB_URL, function(err, db) {
             console.log('connect to db',DB_URL);

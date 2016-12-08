@@ -1,5 +1,5 @@
 {
-  "name": "checkvpn",
+  "name": "log-webservice",
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -10,6 +10,7 @@
     "cookie-parser": "~1.4.3",
     "debug": "~2.2.0",
     "ejs": "^2.5.2",
+    "ejs-locals": "^1.0.2",
     "express": "~4.13.4",
     "jade": "~1.11.0",
     "mongodb": "^2.2.12",

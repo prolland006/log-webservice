@@ -7,7 +7,7 @@ const DESTINATION_FILE = 2;
 
 //params
 //const DB_URL = 'mongodb://localhost:27017/log';
-//const DB_URL = 'mongodb://guest:guest@ds119548.mlab.com:19548/logdb';
+//const DB_URL = 'mongodb://login:pwd@ds119368.mlab.com:19368/heroku_3n9bdmc7';
 const DB_URL = process.env.MONGODB_URL;
 const WRITE_DESTINATION = DESTINATION_MONGODB;
 
@@ -37,6 +37,25 @@ module.exports = class log {
             if (err) throw err;
         });
     }
+
+    readMongo() {
+        console.log('read mongo');
+        console.log('trying connect to db',DB_URL);
+        return new Promise((resolve,reject)=>{
+            MongoClient.connect(DB_URL, function(err, db) {
+                if(err) { reject(err); }
+
+                //resolve(new Array());
+                db.collection('log').find({}).sort({ $natural: -1 }).limit(5000)
+                    .toArray(function(err, docs) {
+                        console.log("Found the following records");
+                        console.dir(docs);
+                        resolve(docs);
+                    });
+            });
+        });
+    };
+
 
     writeMongo(logMessage) {
         console.log('write mongo',logMessage);

@@ -13,7 +13,7 @@
 
         <% for(var i=0; i<docs.length; i++) {%>
 
-            if (isNaN(<%= docs[i].latitude %>) && isNaN(<%= docs[i].longitude %>)) {  //latitude longitude are numbers
+            //if (isNaN(<%= docs[i].latitude %>) && isNaN(<%= docs[i].longitude %>)) {  //latitude longitude are numbers
                 let latLng = {lat: <%= docs[0].latitude %>, lng: <%= docs[0].longitude %>};
                 if (map == null) {
                     var mapProp = {
@@ -29,7 +29,7 @@
                     center: latLng,
                     radius: 2
                 });
-            }
+            //}
 
         <% } %>
 

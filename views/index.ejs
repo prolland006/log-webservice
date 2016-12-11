@@ -9,20 +9,28 @@
 <script>
     function initialize() {
 
-        var latLng = {lat: <%= docs[0].latitude %>, lng: <%= docs[0].longitude %>};
-        var mapProp = {
-            center:latLng,
-            zoom:15,
-            mapTypeId:google.maps.MapTypeId.ROADMAP
-        };
-        var map=new google.maps.Map(document.getElementById("googleMap"), mapProp);
+        let map = null;
 
         <% for(var i=0; i<docs.length; i++) {%>
-            new google.maps.Circle({
-                map: map,
-                center: {lat: <%= docs[i].latitude %>, lng: <%= docs[i].longitude %>},
-                radius: 2
-            });
+
+            if (isNaN(<%= docs[0].latitude %>) && isNaN(<%= docs[0].latitude %>)) {  //latitude longitude are numbers
+                let latLng = {lat: <%= docs[0].latitude %>, lng: <%= docs[0].longitude %>};
+                if (map == null) {
+                    var mapProp = {
+                        center: latLng,
+                        zoom: 15,
+                        mapTypeId: google.maps.MapTypeId.ROADMAP
+                    };
+                    map=new google.maps.Map(document.getElementById("googleMap"), mapProp);
+                }
+
+                new google.maps.Circle({
+                    map: map,
+                    center: latLng,
+                    radius: 2
+                });
+            }
+
         <% } %>
 
     }

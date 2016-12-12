@@ -30,7 +30,7 @@
             lat = '<%= docs[i].latitude %>';
             long = '<%= docs[i].longitude %>';
             if (isFloatGPS(lat,long)) {  //latitude longitude are floats
-                latLng = {lat: <%= docs[0].latitude %>, lng: <%= docs[0].longitude %>};
+                latLng = {lat: <%= docs[i].latitude %>, lng: <%= docs[i].longitude %>};
                 console.log('latLng',latLng);
                 if (map == null) {
                     let mapProp = {

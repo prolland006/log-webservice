@@ -9,7 +9,7 @@
 <script>
 
     function isFloatGPS(latitude, longitude) {
-        return (((latitude.trim().match(/^\d+\s?,\s?\d+$/)) != null) && ((longitude.trim().match(/^\d+\s?,\s?\d+$/)) != null));
+        return (((latitude.trim().match(/^\d+\s?.\s?\d+$/)) != null) && ((longitude.trim().match(/^\d+\s?.\s?\d+$/)) != null));
     }
 
     function initialize() {
@@ -20,8 +20,8 @@
         let long = '';
 
         // test unitaire isFloatGPS
-        console.log('isFloatGPS(12,3,15, 2)',isFloatGPS(' 12,3 ',' 15, 2'));
-        console.log('isFloatGPS(,)',isFloatGPS(' ',' '));
+        console.log('isFloatGPS(12.3,15. 2)',isFloatGPS(' 12.3 ',' 15. 2'));
+        console.log('isFloatGPS()',isFloatGPS(' ',' '));
         console.log('isFloatGPS(null,undefined)',isFloatGPS('null','undefined'));
 
         <% for(var i=0; i<docs.length; i++) {%>

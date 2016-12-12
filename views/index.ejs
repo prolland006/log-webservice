@@ -7,14 +7,25 @@
 </script>
 
 <script>
+
+    function isFloatGPS(latitude, longitude) {
+        return (((latitude.trim().match(/^\d+,\d+$/)) != null) && ((longitude.trim().match(/^\d+,\d+$/)) != null));
+    }
+
     function initialize() {
 
         let map = null;
         let latLng = null;
 
+        // test unitaire isFloatGPS
+        console.log('isFloatGPS(12,3,15, 2)',isFloatGPS(' 12,3 ',' 15, 2'));
+        console.log('isFloatGPS(,)',isFloatGPS(' ',' '));
+        console.log('isFloatGPS(null,undefined)',isFloatGPS('null','undefined'));
+
         <% for(var i=0; i<docs.length; i++) {%>
 
-            if (isNaN(<%= docs[i].latitude %>) && isNaN(<%= docs[i].longitude %>)) {  //latitude longitude are numbers
+
+            if (isFloatGPS(<%= docs[i].latitude %>,<%= docs[i].longitude %>)) {  //latitude longitude are floats
                 latLng = {lat: <%= docs[0].latitude %>, lng: <%= docs[0].longitude %>};
                 console.log('latLng',latLng);
                 if (map == null) {

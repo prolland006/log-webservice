@@ -31,6 +31,8 @@
                     center: latLng,
                     radius: 2
                 });
+            } else {
+                console.log('NaN',`lat: ${<%= docs[0].latitude %>}, lng: ${<%= docs[0].longitude %>}`);
             }
 
         <% } %>

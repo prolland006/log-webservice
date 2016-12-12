@@ -27,8 +27,8 @@
         <% for(var i=0; i<docs.length; i++) {%>
 
 
-            lat = <%= docs[i].latitude %>;
-            long = <%= docs[i].longitude %>;
+            lat = '<%= docs[i].latitude %>';
+            long = '<%= docs[i].longitude %>';
             if (isFloatGPS(lat,long)) {  //latitude longitude are floats
                 latLng = {lat: <%= docs[0].latitude %>, lng: <%= docs[0].longitude %>};
                 console.log('latLng',latLng);

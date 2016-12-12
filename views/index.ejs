@@ -31,7 +31,7 @@
             long = '<%= docs[i].longitude %>';
             if (isFloatGPS(lat,long)) {  //latitude longitude are floats
                 latLng = {lat: <%= docs[i].latitude %>, lng: <%= docs[i].longitude %>};
-                console.log('latLng',latLng);
+                console.log('latLng_',latLng);
                 if (map == null) {
                     let mapProp = {
                         center: latLng,
@@ -47,7 +47,7 @@
                     radius: 2
                 });
             } else {
-                console.log('NaN',`lat: ${<%= docs[0].latitude %>}, lng: ${<%= docs[0].longitude %>}`);
+                console.log('NaN',`lat: ${<%= docs[i].latitude %>}, lng: ${<%= docs[i].longitude %>}`);
             }
 
         <% } %>
